@@ -1,0 +1,256 @@
+<head>
+	<title>This is the JS Intro file</title>
+	
+	<!--   -->
+	
+	<style type="text/css">
+	
+	
+	/* CSS Land */
+	
+	#cat_pic{
+		width: 300px;
+		height: 300px;
+	}
+	
+	
+	
+	</style>
+	
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<!-- This is for meta data or features of the page-->
+</head>
+
+
+
+<body>
+
+
+<div style='font-size: 55; color:blue;'>Hello World!!</div>
+
+<img id='cat_pic' src="https://raw.githubusercontent.com/maegul/melb_clim_change/master/cat.jpg">
+
+<div id = 'plot'></div>
+
+<button id = 'button1'>Increase width of pic</button>
+<button id = 'button2'>Decrease width of pic</button>
+
+
+	<script type="text/javascript">
+	
+	
+	
+	// Javascript Land
+	
+	console.log('Hello there!!!');
+	
+	
+	
+	// Strings
+	
+	var my_name = 'aslkdasdlhadslhadslhasd';
+	
+	console.log(my_name);
+	
+	// Numbers
+	
+	var my_age = 30;
+	
+	console.log('This is my age');
+	console.log(my_age);
+	
+	
+	
+	//function
+	
+	function my_hello(){
+	console.log ('Hi again, I am inside the my_hello function');
+	
+	};
+	
+	my_hello();
+	
+	
+	// function 2
+	
+
+	
+	
+	
+	
+	
+	// just to check if plotly library as been loaded properly - will show a message in the console window if it has been successfully loaded
+	console.log(Plotly);
+	
+	// Interactivity 1
+	
+	// 1 - Pull a HTML element into JS land
+	
+	var d3 = Plotly.d3;
+	
+	var my_cat_pic = d3.select('#cat_pic');
+	console.log(my_cat_pic);
+	
+	
+	
+	// 2 - Put an 'event listener' onto that element
+	
+	my_cat_pic.on('click', function(){
+		
+		window.alert('Meaoww!!');
+	});
+	
+	
+	// 3 - Make JS change the HTML of the page
+	
+	
+	
+	
+	
+	// Interactivity 2
+	
+	// 1 - Pull a HTML element into JS land
+	
+	var d3 = Plotly.d3;
+	
+	var my_button_1 = d3.select('#button1');
+	console.log(my_button_1);
+	
+	
+	var my_button_2 = d3.select('#button2');
+	
+	
+	
+	
+	// 2 - Put an 'event listener' onto that element
+	
+	my_button_1.on('mouseover', function(){
+		
+		console.log('This is the mouseover event on button 1');
+	});
+	
+	my_button_1.on('mouseout', function(){
+		
+		console.log('This is the mouseout event on button 1');
+	});
+	
+	
+	
+	// 3 - Make JS change the HTML of the page
+	
+	
+	my_button_1.on('click', function(){
+		
+		var current_width = parseInt(my_cat_pic.style('width'));
+ 
+		console.log('the width style ... my lord ...');
+		console.log(current_width);
+
+		var new_width = (current_width + 30) + 'px';
+
+		my_cat_pic.style('width', new_width);
+	});
+	
+	
+	
+	my_button_2.on('click', function(){
+		
+		var current_width1 = parseInt(my_cat_pic.style('width'));
+ 
+		console.log('the width style ... my lord ...');
+		console.log(current_width1);
+
+		var new_width1 = (current_width1 - 30) + 'px';
+
+		my_cat_pic.style('width', new_width1);
+	});
+	
+		// Containers
+
+ 
+		// Arrays - cares about order
+ 
+		var my_array = [1, 2, 3, 4, 5];
+ 
+ 
+ 
+		my_array.push('I was added at the last minute');
+ 
+		// console.log( my_array.length )
+ 
+ 
+ 
+		// Objects - cares about names (keys)
+ 
+ 
+		var my_object = {my_age: 31, my_name: 'Errol', happiness: 11};
+ 
+		console.log(my_object['happiness'] )
+ 
+ 
+ 
+		// Nesting
+ 
+		var my_mum = {age: 54, name: 'Mary', happiness: 9, bmi: [5, 3, 6, 7, 2]};
+ 
+		var my_dad = {age: 54, name: 'Tom', happiness: 3, bmi: [19, 26, 17, 13]}
+ 
+		my_mum['actual_wt'] = 59;
+ 
+		my_mum['bmi'].push(6);
+ 
+		var my_family = [];
+		
+		console.log(my_mum);
+		console.log(my_dad);
+ 
+		my_family.push(my_mum);
+		my_family.push(my_dad);
+  
+		console.log(my_family)
+
+		var family_names = my_family
+								.filter(function(d){
+									return d['age'] < 70;
+									})
+								.map(function(d){
+									return d['happiness'];
+									});
+
+		console.log(family_names);
+		
+		
+		// loading data
+		
+		d3.csv('https://raw.githubusercontent.com/maegul/melb_clim_change/master/date_close.csv', function(data){
+			console.log(function(data){
+								
+								});
+		});
+		
+		
+		
+	
+		// Plotly
+		
+		var my_plot = d3.select('#plot').node();
+		
+		var months = ["Jan","Feb","Mar","Apr","May","Jun",];
+		
+		
+		var new_trace = {
+			x: my_dad["bmi"],
+			y: my_mum['bmi']
+		}
+	
+		Plotly.newPlot(my_plot, [new_trace])
+	
+	
+				
+	
+	</script>
+
+
+
+
+</body>
